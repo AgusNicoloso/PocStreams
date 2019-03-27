@@ -18,18 +18,10 @@ public class Main {
         //-----------------------------------------------------------------------------
         System.out.println(String.format("Personas : %s", personas));
         //-----------------------------------------------------------------------------
-        List<Persona> personasmayores = new ArrayList<>();
+        System.out.println(String.format("Personas mayores a 21 : %s", personas.stream().filter(persona -> persona.getEdad() >= 21).collect(Collectors.toList())));
         //-----------------------------------------------------------------------------
-        personasmayores = personas.stream().filter(persona -> persona.getEdad() >= 21).collect(Collectors.toList());
+        System.out.println(String.format("Personas menores a 18 : %s", personas.stream().filter(persona -> persona.getEdad() <= 18).collect(Collectors.toList())));
         //-----------------------------------------------------------------------------
-        System.out.println(String.format("Personas mayores a 21 : %s", personasmayores));
-        //-----------------------------------------------------------------------------
-        personasmayores = personas.stream().filter(persona -> persona.getEdad() <= 18).collect(Collectors.toList());
-        //-----------------------------------------------------------------------------
-        System.out.println(String.format("Personas menores a 18 : %s", personasmayores));
-        //-----------------------------------------------------------------------------
-        personasmayores = personas.stream().filter(persona -> persona.getEdad() >= 21).filter(persona -> persona.getDni() >= 20000000).collect(Collectors.toList());
-        //-----------------------------------------------------------------------------
-        System.out.println(String.format("Personas mayores a 21 y DNI mayor a 200000000 : %s", personasmayores));
+        System.out.println(String.format("Personas mayores a 21 y DNI mayor a 200000000 : %s", personas.stream().filter(persona -> persona.getEdad() >= 21).filter(persona -> persona.getDni() >= 20000000).collect(Collectors.toList())));
     }
 }
